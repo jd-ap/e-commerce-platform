@@ -1,0 +1,40 @@
+### Java ###
+# Compiled class file
+target/
+*.class
+# Package Files
+*.jar
+*.war
+
+# Log file
+*.log
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### certificates ###
+*.pem
+*.key
+*.crt
+*.cer
+*.der
+*.priv
+
+### OS ###
+# macOS
+.DS_Store
+._*
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+# Linux
+*~
+.Trash-*
