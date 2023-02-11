@@ -1,1 +1,28 @@
+info.app:
+  name: e-commerce platform
+  description: Technical proof e-commerce platform
+  version: 0.0.1-SNAPSHOT
 
+server.servlet.context-path: /ecommerce
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:ec_db
+    username: guest
+    password: changeIt
+    driverClassName: org.h2.Driver
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+  h2.console:
+    path: /h2-console
+    enabled: true
+    settings.trace: false
+    settings.web-allow-others: false
+
+logging:
+  level:
+    root: ERROR
+    org.springframework: ERROR
+    tech.proof.ecommerce: INFO
+  pattern.console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){blue} %clr(%5level){faint} %clr(---){faint} %-40.40clr(%logger{0}.%M){blue} %clr(:){red} %clr(%msg){faint}%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
