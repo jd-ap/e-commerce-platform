@@ -11,10 +11,9 @@ import tech.proof.ecommerce.web.model.Item;
 
 import java.time.LocalDateTime;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
-import static org.springframework.http.HttpStatus.OK;
+import static org.springframework.http.HttpStatus.*;
 
 @SpringBootTest(webEnvironment = RANDOM_PORT, classes = ECommercePlatformApplication.class)
 //@TestPropertySource(locations = "classpath:application-integrationtest.properties")
@@ -144,4 +143,91 @@ class CatalogControllerTest {
 
     }
 
+    @Test
+    @DisplayName("Test 6: petición a la fecha actual del producto 35455 para la brand 1 (ZARA)")
+    void givenFindPriceByProduct_whenTest6_thenReturn404() {
+        //given
+        String brand = "zara";
+        Long productId = 35455L;
+
+        //when
+        ResponseEntity<Item> responseEntity =
+                restTemplate.getForEntity("/catalog/%s/products/%d".formatted(brand, productId), Item.class);
+
+        //then
+        assertEquals(NOT_FOUND, responseEntity.getStatusCode());
+        assertNull(responseEntity.getBody());
+
+    }
+
+    @Test
+    @DisplayName("Test 7: petición a las 00:00 del día 14 del producto 35454 para la brand 1 (ZARA)")
+    void givenFindPriceByProduct_whenTest7_thenReturn404() {
+        //given
+        String brand = "zara";
+        Long productId = 35454L;
+        String aDate = "202006140000";
+
+        //when
+        ResponseEntity<Item> responseEntity =
+                restTemplate.getForEntity("/catalog/%s/products/%d?date=%s".formatted(brand, productId, aDate), Item.class);
+
+        //then
+        assertEquals(NOT_FOUND, responseEntity.getStatusCode());
+        assertNull(responseEntity.getBody());
+
+    }
+
+    @Test
+    @DisplayName("Test 8: petición a las 00:00 del día 14 del producto 35455 para la brand UNDEFINED")
+    void givenFindPriceByProduct_whenTest8_thenReturn404() {
+        //given
+        String brand = "undefined";
+        Long productId = 35455L;
+        String aDate = "202006140000";
+
+        //when
+        ResponseEntity<Item> responseEntity =
+                restTemplate.getForEntity("/catalog/%s/products/%d?date=%s".formatted(brand, productId, aDate), Item.class);
+
+        //then
+        assertEquals(NOT_FOUND, responseEntity.getStatusCode());
+        assertNull(responseEntity.getBody());
+
+    }
+
+    @Test
+    @DisplayName("Test 9: petición del producto aaa para la brand 1 (ZARA)")
+    void givenFindPriceByProduct_whenTest9_thenReturn412() {
+        //given
+        String brand = "zara";
+        String productId = "aaa";
+
+        //when
+        ResponseEntity<Item> responseEntity =
+                restTemplate.getForEntity("/catalog/%s/products/%s".formatted(brand, productId), Item.class);
+
+        //then
+        assertEquals(PRECONDITION_FAILED, responseEntity.getStatusCode());
+        assertNull(responseEntity.getBody());
+
+    }
+
+    @Test
+    @DisplayName("Test 10: petición a las 00:XX del día 14 del producto 35455 para la brand 1 (ZARA)")
+    void givenFindPriceByProduct_whenTest10_thenReturn412() {
+        //given
+        String brand = "zara";
+        Long productId = 35455L;
+        String aDate = "2020061400XX";
+
+        //when
+        ResponseEntity<Item> responseEntity =
+                restTemplate.getForEntity("/catalog/%s/products/%d?date=%s".formatted(brand, productId, aDate), Item.class);
+
+        //then
+        assertEquals(PRECONDITION_FAILED, responseEntity.getStatusCode());
+        assertNull(responseEntity.getBody());
+
+    }
 }

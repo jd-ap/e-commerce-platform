@@ -22,6 +22,8 @@ target/
 *.cer
 *.der
 *.priv
+# Environmen #
+.env
 
 ### OS ###
 # macOS
