@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/catalog")
-public class CatalogController {
+public class CatalogController implements CatalogApi {
 
     private final PriceRepository priceRepository;
 

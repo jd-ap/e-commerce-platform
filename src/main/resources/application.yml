@@ -20,6 +20,18 @@ spring:
     settings.trace: false
     settings.web-allow-others: false
 
+springdoc:
+  #packagesToScan: web
+  #pathsToMatch: /ecommerce/**
+  swagger-ui:
+    #path: /swagger-ui.html
+    #enabled: true
+    operationsSorter: alpha
+    tagsSorter: alpha
+    use-root-path: true
+  cache:
+    disabled: true
+
 logging:
   level:
     root: ERROR
