@@ -1,7 +1,7 @@
 info.app:
   name: e-commerce platform
   description: Technical proof e-commerce platform
-  version: 0.0.1-SNAPSHOT
+  version: v0.0.1-SNAPSHOT
 
 server.servlet.context-path: /ecommerce
 
