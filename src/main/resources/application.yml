@@ -21,11 +21,8 @@ spring:
     settings.web-allow-others: false
 
 springdoc:
-  #packagesToScan: web
-  #pathsToMatch: /ecommerce/**
+  packagesToScan: tech.proof.ecommerce.web
   swagger-ui:
-    #path: /swagger-ui.html
-    #enabled: true
     operationsSorter: alpha
     tagsSorter: alpha
     use-root-path: true

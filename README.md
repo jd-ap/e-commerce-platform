@@ -9,7 +9,7 @@
 |-----------------------|-----------------------------------------------------------------------------|
 | index                 | localhost:80/ecommerce                                                      |
 | h2 console            | /h2-console                                                                 |
-| swagger               | /swagger-ui/index.html                                                      |
+| swagger               | /swagger-ui.html                                                            |
 | findPriceByProduct    | /catalog/${brandUrl:'ZARA'}/products/${productId}?priceDate=#{yyyyMMddHHmm} |
 | ---                   | ---                                                                         |
 | getProductListByBrand | /catalog/${brandUrl:'ZARA'}/products                                        |
