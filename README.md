@@ -10,7 +10,7 @@
 Service to consult price variations over time of the products offered by the company's ecommerce.
 
 ### Screenshot
-![test results](https://github.com/jd-ap/e-commerce-platform/tree/main/doc/tests-picture.png)
+![test results](https://github.com/jd-ap/e-commerce-platform/blob/main/doc/tests-picture.png?raw=true)
 
 ### URLS
 | Name               | Path                                                             |
