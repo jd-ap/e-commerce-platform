@@ -1,11 +1,17 @@
 package tech.proof.ecommerce.web.model;
 
 import tech.proof.ecommerce.prices.Price;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.time.LocalDateTime;
 
-
-public record Item(Long productId, Long brandId, Long priceList, LocalDateTime startDate, LocalDateTime endDate, String rate) {
+@Schema
+public record Item(Long productId,
+                   Long brandId,
+                   Long priceList,
+                   LocalDateTime startDate,
+                   LocalDateTime endDate,
+                   String rate) {
 
     public static Item of(Price price) {
         return new Item(price.getProduct().getId(),
