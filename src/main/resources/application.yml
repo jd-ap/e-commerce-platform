@@ -18,7 +18,7 @@ spring:
     path: /h2-console
     enabled: true
     settings.trace: false
-    settings.web-allow-others: false
+    settings.web-allow-others: true
 
 springdoc:
   packagesToScan: tech.proof.ecommerce.web

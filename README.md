@@ -10,15 +10,24 @@
 Service to consult price variations over time of the products offered by the company's ecommerce.
 
 ### Screenshot
+
+`mvn clean test`
 ![test results](https://github.com/jd-ap/e-commerce-platform/blob/main/doc/tests-picture.png?raw=true)
 
+````
+curl -X 'GET' \
+'http://localhost:9000/ecommerce/catalog/zara/products/35455?date=202006141000' \
+-H 'accept: application/json'
+````
+![test results](https://github.com/jd-ap/e-commerce-platform/blob/main/doc/findProduct-response.png?raw=true)
+
 ### URLS
-| Name               | Path                                                             |
-|--------------------|------------------------------------------------------------------|
-| index              | localhost:8080/ecommerce                                         |
-| h2 console         | /h2-console `user = guest` `password = changeIt`                 |
-| swagger ui         | /swagger-ui.html                                                 |
-| findPriceByProduct | /catalog/{brand}/products/{product-id}?priceDate=#{yyyyMMddHHmm} |
+| Name               | Path                                                                                                                                              |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| index              | [localhost:9000/ecommerce](http://localhost:9000/ecommerce)                                                                                       |
+| h2 console         | [/h2-console](http://localhost:9000/ecommerce/h2-console) `user = guest` `password = changeIt`                                                    |
+| openapi swagger ui | [/swagger-ui.html](http://localhost:9000/ecommerce/swagger-ui.html)                                                                               |
+| findPriceByProduct | [/catalog/{brand}/products/{product-id}?priceDate=#{yyyyMMddHHmm}](http://localhost:9000/ecommerce/catalog/zara/products/35455?date=202006141000) |
 
 ### Output
 ````json
@@ -60,7 +69,9 @@ Service to consult price variations over time of the products offered by the com
 ## Technologies
 
 * [java](https://example.com): Version 17
-* [Spring boot](https://example.com): Version 3.0.2
+* [Spring framework](https://spring.io/): Version 6.0.4
+* [Spring boot](https://spring.io/projects/spring-boot): Version 3.0.2
+* [OpenApi](https://www.openapis.org/): Version 2.0.2
 
 ## Installation
 
@@ -76,47 +87,7 @@ Service to consult price variations over time of the products offered by the com
    - `priceDate` is an optional parameter, by default the current date and time is taken.
 2. **How is the structure of the packages defined in the project?**
    The project packaging follows a component segmentation, where `brands`, `products` and `prices` are domain components; and `web` is a http exposure component.
-3. **Why does `CatalogController` call directly to `PriceRepository`?**
-   To maintain a sober architecture and to the minimum of the solution. At the time of growth you can define the corresponding `<ENTITY>Service` classes, like this:   ````java
-   ````java
-   package tech.proof.ecommerce.prices;
-
-   import java.time.LocalDateTime;
-   import java.util.Optional;
-   
-   public sealed interface PriceService permits PriceServiceImpl {
-   
-       Optional<Price> findOneByBrandKeywordAndProductIdAndDateBetweenOrderByPriority(String keyword, Long productId, LocalDateTime aDate);
-   
-   }
-   ````
-   ````java
-   package tech.proof.ecommerce.prices;
-
-   import lombok.RequiredArgsConstructor;
-   import org.springframework.stereotype.Service;
-   
-   import java.time.LocalDateTime;
-   import java.util.Optional;
-   
-   @RequiredArgsConstructor
-   @Service
-   final class PriceServiceImpl implements PriceService {
-   
-       private final PriceRepository priceRepository;
-   
-       @Override
-       public Optional<Price> findOneByBrandKeywordAndProductIdAndDateBetweenOrderByPriority(String keyword, Long productId, LocalDateTime aDate) {
-           LocalDateTime priceDate = null == aDate ? LocalDateTime.now() : aDate;
-   
-           return priceRepository.findOneByBrandKeywordAndProductIdAndDateBetweenOrderByPriority(keyword, productId, priceDate);
-       }
-   
-   }
-   ````
-   And change the reference from `<ENTITY>Repository` to `<ENTITY>Service`.
-   > see: branch `feature/architecture-extended` 
-4. **How did you arrive at the query construction for `PriceRepository.findOneByByBrandKeywordAndProductIdAndDateBetweenOrderByPriority`?**
+3. **How did you arrive at the query construction for `PriceRepository.findOneByByBrandKeywordAndProductIdAndDateBetweenOrderByPriority`?**
    ````jpqlcommunity
    from Price p 
    where :aDate between p.startDate and p.endDate 
@@ -130,5 +101,3 @@ Service to consult price variations over time of the products offered by the com
    By limiting the number of result, we only retrieve the best matching price.
    
    ** The order of the statements in the where was modified by the definition of an index, for that reason the name of the method does not match the query.
-
-> Translated with www.DeepL.com/Translator (free version)
