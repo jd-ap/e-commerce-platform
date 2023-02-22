@@ -9,16 +9,16 @@
 ## General Info
 Service to consult price variations over time of the products offered by the company's ecommerce.
 
-### Screenshot
-
-`mvn clean test`
+### Run tests in command line
+`mvn clean test`  
 ![test results](https://github.com/jd-ap/e-commerce-platform/blob/main/doc/tests-picture.png?raw=true)
 
+### Consume api in command line
 ````
 curl -X 'GET' \
 'http://localhost:9000/ecommerce/catalog/zara/products/35455?date=202006141000' \
 -H 'accept: application/json'
-````
+````  
 ![test results](https://github.com/jd-ap/e-commerce-platform/blob/main/doc/findProduct-response.png?raw=true)
 
 ### URLS
@@ -68,7 +68,7 @@ curl -X 'GET' \
 
 ## Technologies
 
-* [java](https://example.com): Version 17
+* [java](https://www.java.com/es/): Version 17
 * [Spring framework](https://spring.io/): Version 6.0.4
 * [Spring boot](https://spring.io/projects/spring-boot): Version 3.0.2
 * [OpenApi](https://www.openapis.org/): Version 2.0.2
