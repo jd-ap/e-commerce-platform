@@ -11,7 +11,7 @@ Service to consult price variations over time of the products offered by the com
 
 ### Run tests in command line
 `mvn clean test`  
-![test results](https://github.com/jd-ap/e-commerce-platform/blob/main/doc/tests-picture.png?raw=true)
+![test results](https://github.com/jd-ap/e-commerce-platform/blob/main/doc/images/tests-picture.png?raw=true)
 
 ### Consume api in command line
 ````
@@ -19,7 +19,7 @@ curl -X 'GET' \
 'http://localhost:9000/ecommerce/catalog/zara/products/35455?date=202006141000' \
 -H 'accept: application/json'
 ````  
-![test results](https://github.com/jd-ap/e-commerce-platform/blob/main/doc/findProduct-response.png?raw=true)
+![test results](https://github.com/jd-ap/e-commerce-platform/blob/main/doc/images/findProduct-response.png?raw=true)
 
 ### URLS
 | Name               | Path                                                                                                                                              |

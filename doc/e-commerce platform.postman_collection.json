@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "83c7ea23-2907-4744-805f-ebf001e501bb",
+		"name": "e-commerce platform",
+		"description": "Technical proof e-commerce platform",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9037842"
+	},
+	"item": [
+		{
+			"name": "Get price by product",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/catalog/:brand-url/products/:product-id?date=202006141000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"catalog",
+						":brand-url",
+						"products",
+						":product-id"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "202006141000",
+							"description": "date to be searched"
+						}
+					],
+					"variable": [
+						{
+							"key": "brand-url",
+							"value": "zara",
+							"description": "(Required) identifier of brand to be searched"
+						},
+						{
+							"key": "product-id",
+							"value": "35455",
+							"description": "(Required) id of product to be searched"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Found the price",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/catalog/:brand-url/products/:product-id?date=202006141000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"catalog",
+								":brand-url",
+								"products",
+								":product-id"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "202006141000"
+								}
+							],
+							"variable": [
+								{
+									"key": "brand-url",
+									"value": "zara",
+									"description": "(Required) identifier of brand to be searched"
+								},
+								{
+									"key": "product-id",
+									"value": "35455",
+									"description": "(Required) id of product to be searched"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"productId\": 35455,\n  \"brandId\": 1,\n  \"priceList\": 1,\n  \"startDate\": \"2020-06-14T00:00:00\",\n  \"endDate\": \"2020-12-31T23:59:59\",\n  \"rate\": \"EUR 35,50 €\"\n}"
+				},
+				{
+					"name": "Product not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/catalog/:brand-url/products/:product-id?date=202206141000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"catalog",
+								":brand-url",
+								"products",
+								":product-id"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "202206141000"
+								}
+							],
+							"variable": [
+								{
+									"key": "brand-url",
+									"value": "zara",
+									"description": "(Required) identifier of brand to be searched"
+								},
+								{
+									"key": "product-id",
+									"value": "35455",
+									"description": "(Required) id of product to be searched"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Invalid parameters",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/catalog/:brand-url/products/:product-id?date=2016-02-08",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"catalog",
+								":brand-url",
+								"products",
+								":product-id"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2016-02-08"
+								}
+							],
+							"variable": [
+								{
+									"key": "brand-url",
+									"value": "zara",
+									"description": "(Required) identifier of brand to be searched"
+								},
+								{
+									"key": "product-id",
+									"value": "35455",
+									"description": "(Required) id of product to be searched"
+								}
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Internal error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/catalog/:brand-url/products/:product-id?date=202006141000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"catalog",
+								":brand-url",
+								"products",
+								":product-id"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "202006141000"
+								}
+							],
+							"variable": [
+								{
+									"key": "brand-url",
+									"value": "zara",
+									"description": "(Required) identifier of brand to be searched"
+								},
+								{
+									"key": "product-id",
+									"value": "35455",
+									"description": "(Required) id of product to be searched"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:9000/ecommerce",
+			"type": "string"
+		}
+	]
+}

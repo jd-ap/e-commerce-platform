@@ -1,0 +1,86 @@
+openapi: 3.0.1
+info:
+  title: e-commerce platform
+  description: Technical proof e-commerce platform
+  version: v0.0.1-SNAPSHOT
+servers:
+  - url: http://localhost:9000/ecommerce
+    description: Generated server url
+tags:
+  - name: catalog
+    description: the catalog API
+paths:
+  /catalog/{brand-url}/products/{product-id}:
+    get:
+      tags:
+        - catalog
+      summary: Get price by product
+      operationId: findPriceByProduct
+      parameters:
+        - name: brand-url
+          in: path
+          description: identifier of brand to be searched
+          required: true
+          schema:
+            type: string
+          example: zara
+        - name: product-id
+          in: path
+          description: id of product to be searched
+          required: true
+          schema:
+            type: integer
+            format: int64
+          example: 35455
+        - name: date
+          in: query
+          description: date to be searched
+          required: false
+          schema:
+            type: string
+            format: date
+            example: 202006141000
+      responses:
+        '200':
+          description: Found the price
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+              example:
+                productId: 35455
+                brandId: 1
+                priceList: 1
+                startDate: '2020-06-14T00:00:00'
+                endDate: '2020-12-31T23:59:59'
+                rate: EUR 35,50 €
+        '404':
+          description: Product not found
+        '412':
+          description: Invalid parameters
+          content: {}
+        '500':
+          description: Internal error
+          content: {}
+components:
+  schemas:
+    Item:
+      type: object
+      properties:
+        productId:
+          type: integer
+          format: int64
+        brandId:
+          type: integer
+          format: int64
+        priceList:
+          type: integer
+          format: int64
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+        rate:
+          type: string
