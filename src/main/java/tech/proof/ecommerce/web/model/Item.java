@@ -1,7 +1,7 @@
 package tech.proof.ecommerce.web.model;
 
-import tech.proof.ecommerce.prices.Price;
 import io.swagger.v3.oas.annotations.media.Schema;
+import tech.proof.ecommerce.prices.Price;
 
 import java.time.LocalDateTime;
 
