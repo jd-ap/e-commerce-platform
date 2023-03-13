@@ -23,7 +23,7 @@ class PriceServiceImplTest {
     PriceRepository priceRepository;
 
     @Test
-    void givenFindOne_When_ThenReturnsOne() {
+    void givenFindOne_thenReturnsOne() {
         //given
         String brand = "zara";
         Long productId = 0L;
@@ -42,7 +42,7 @@ class PriceServiceImplTest {
     }
 
     @Test
-    void givenFindOne_When_ThenReturnsEmpty() {
+    void givenFindOne_whenProductNotExist_thenReturnsEmpty() {
         //given
         String brand = "zara";
         Long productId = 0L;
@@ -59,7 +59,7 @@ class PriceServiceImplTest {
     }
 
     @Test
-    void givenFindOne_WhenKeywordParamIsNull_ThenThrowAssertionError() {
+    void givenFindOne_whenKeywordParamIsNull_thenThrowAssertionError() {
         var error = assertThrows(AssertionError.class, () -> priceService.findOneByBrandKeywordAndProductIdAndDateBetweenOrderByPriority(null, 0L, null));
 
         assertNotNull(error);
@@ -67,7 +67,7 @@ class PriceServiceImplTest {
     }
 
     @Test
-    void givenFindOne_WhenProductIdParamIsNull_ThenThrowAssertionError() {
+    void givenFindOne_whenProductIdParamIsNull_thenThrowAssertionError() {
         var error = assertThrows(AssertionError.class, () -> priceService.findOneByBrandKeywordAndProductIdAndDateBetweenOrderByPriority("", null, null));
 
         assertNotNull(error);

@@ -51,7 +51,7 @@
 			},
 			"response": [
 				{
-					"name": "Found the price",
+					"name": "Found the price, Test 1",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
@@ -97,6 +97,210 @@
 					],
 					"cookie": [],
 					"body": "{\n  \"productId\": 35455,\n  \"brandId\": 1,\n  \"priceList\": 1,\n  \"startDate\": \"2020-06-14T00:00:00\",\n  \"endDate\": \"2020-12-31T23:59:59\",\n  \"rate\": \"EUR 35,50 €\"\n}"
+				},
+				{
+					"name": "Found the price, Test 2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/catalog/:brand-url/products/:product-id?date=202006141600",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"catalog",
+								":brand-url",
+								"products",
+								":product-id"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "202006141600"
+								}
+							],
+							"variable": [
+								{
+									"key": "brand-url",
+									"value": "zara",
+									"description": "(Required) identifier of brand to be searched"
+								},
+								{
+									"key": "product-id",
+									"value": "35455",
+									"description": "(Required) id of product to be searched"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"productId\": 35455,\n    \"brandId\": 1,\n    \"priceList\": 4,\n    \"startDate\": \"2020-06-14T16:00:00\",\n    \"endDate\": \"2020-12-31T23:59:59\",\n    \"rate\": \"EUR 38,95 €\"\n}"
+				},
+				{
+					"name": "Found the price, Test 3",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/catalog/:brand-url/products/:product-id?date=202006142100",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"catalog",
+								":brand-url",
+								"products",
+								":product-id"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "202006142100"
+								}
+							],
+							"variable": [
+								{
+									"key": "brand-url",
+									"value": "zara",
+									"description": "(Required) identifier of brand to be searched"
+								},
+								{
+									"key": "product-id",
+									"value": "35455",
+									"description": "(Required) id of product to be searched"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"productId\": 35455,\n    \"brandId\": 1,\n    \"priceList\": 4,\n    \"startDate\": \"2020-06-14T16:00:00\",\n    \"endDate\": \"2020-12-31T23:59:59\",\n    \"rate\": \"EUR 38,95 €\"\n}"
+				},
+				{
+					"name": "Found the price, Test 4",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/catalog/:brand-url/products/:product-id?date=202006151000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"catalog",
+								":brand-url",
+								"products",
+								":product-id"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "202006151000"
+								}
+							],
+							"variable": [
+								{
+									"key": "brand-url",
+									"value": "zara",
+									"description": "(Required) identifier of brand to be searched"
+								},
+								{
+									"key": "product-id",
+									"value": "35455",
+									"description": "(Required) id of product to be searched"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"productId\": 35455,\n    \"brandId\": 1,\n    \"priceList\": 3,\n    \"startDate\": \"2020-06-15T00:00:00\",\n    \"endDate\": \"2020-06-15T11:00:00\",\n    \"rate\": \"EUR 30,50 €\"\n}"
+				},
+				{
+					"name": "Found the price, Test 5",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/catalog/:brand-url/products/:product-id?date=202006162100",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"catalog",
+								":brand-url",
+								"products",
+								":product-id"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "202006162100"
+								}
+							],
+							"variable": [
+								{
+									"key": "brand-url",
+									"value": "zara",
+									"description": "(Required) identifier of brand to be searched"
+								},
+								{
+									"key": "product-id",
+									"value": "35455",
+									"description": "(Required) id of product to be searched"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"productId\": 35455,\n    \"brandId\": 1,\n    \"priceList\": 4,\n    \"startDate\": \"2020-06-14T16:00:00\",\n    \"endDate\": \"2020-12-31T23:59:59\",\n    \"rate\": \"EUR 38,95 €\"\n}"
 				},
 				{
 					"name": "Product not found",
