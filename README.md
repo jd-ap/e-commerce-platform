@@ -73,8 +73,8 @@ curl -X 'GET' \
 
 * [java](https://www.java.com/es/): Version 17
 * [Spring framework](https://spring.io/): Version 6.0.4
-* [Spring boot](https://spring.io/projects/spring-boot): Version 3.0.2
-* [OpenApi](https://www.openapis.org/): Version 2.0.2
+* [Spring boot](https://spring.io/projects/spring-boot): Version 3.2.4
+* [OpenApi](https://www.openapis.org/): Version 1.8.0
 * [Postman](https://www.postman.com/)
 
 ## Installation

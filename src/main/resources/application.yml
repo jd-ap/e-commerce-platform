@@ -3,7 +3,9 @@ info.app:
   description: Technical proof e-commerce platform
   version: v0.0.1-SNAPSHOT
 
-server.servlet.context-path: /ecommerce
+server:
+  servlet.context-path: /ecommerce
+  port: 9000
 
 spring:
   datasource:

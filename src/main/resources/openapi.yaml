@@ -1,8 +1,8 @@
-openapi: 3.0.1
+openapi: 3.0.3
 info:
   title: e-commerce platform
   description: Technical proof e-commerce platform
-  version: v0.0.1-SNAPSHOT
+  version: v0.1.0-SNAPSHOT
 servers:
   - url: http://localhost:9000/ecommerce
     description: Generated server url
@@ -38,7 +38,7 @@ paths:
           required: false
           schema:
             type: string
-            format: date
+            format: date-time
             example: 202006141000
       responses:
         '200':
@@ -58,10 +58,8 @@ paths:
           description: Product not found
         '412':
           description: Invalid parameters
-          content: {}
         '500':
           description: Internal error
-          content: {}
 components:
   schemas:
     Item:

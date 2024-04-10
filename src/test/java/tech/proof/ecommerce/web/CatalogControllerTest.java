@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.ResponseEntity;
 import tech.proof.ecommerce.ECommercePlatformApplication;
+import tech.proof.ecommerce.web.mapper.ItemMapper;
 import tech.proof.ecommerce.web.model.Item;
 
 import java.time.LocalDateTime;
@@ -16,7 +17,6 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 import static org.springframework.http.HttpStatus.*;
 
 @SpringBootTest(webEnvironment = RANDOM_PORT, classes = ECommercePlatformApplication.class)
-//@TestPropertySource(locations = "classpath:application-integrationtest.properties")
 @DisplayName("CatalogController Integration Tests")
 class CatalogControllerTest {
 
@@ -31,7 +31,7 @@ class CatalogControllerTest {
         Long productId = 35455L;
         String aDate = "202006141000";
 
-        var expected = new Item(35455L, 1L, 1L,
+        var expected = ItemMapper.newInstance(35455L, 1L, 1L,
                 LocalDateTime.of(2020, 06, 14, 00, 00, 00),
                 LocalDateTime.of(2020, 12, 31, 23, 59, 59),
                 "EUR 35,50 €");
@@ -55,7 +55,7 @@ class CatalogControllerTest {
         Long productId = 35455L;
         String aDate = "202006141600";
 
-        var expected = new Item(35455L, 1L, 4L,
+        var expected = ItemMapper.newInstance(35455L, 1L, 4L,
                 LocalDateTime.of(2020, 06, 14, 16, 00, 00),
                 LocalDateTime.of(2020, 12, 31, 23, 59, 59),
                 "EUR 38,95 €");
@@ -79,7 +79,7 @@ class CatalogControllerTest {
         Long productId = 35455L;
         String aDate = "202006142100";
 
-        var expected = new Item(35455L, 1L, 4L,
+        var expected = ItemMapper.newInstance(35455L, 1L, 4L,
                 LocalDateTime.of(2020, 06, 14, 16, 00, 00),
                 LocalDateTime.of(2020, 12, 31, 23, 59, 59),
                 "EUR 38,95 €");
@@ -103,7 +103,7 @@ class CatalogControllerTest {
         Long productId = 35455L;
         String aDate = "202006151000";
 
-        var expected = new Item(35455L, 1L, 3L,
+        var expected = ItemMapper.newInstance(35455L, 1L, 3L,
                 LocalDateTime.of(2020, 06, 15, 00, 00, 00),
                 LocalDateTime.of(2020, 06, 15, 11, 00, 00),
                 "EUR 30,50 €");
@@ -127,7 +127,7 @@ class CatalogControllerTest {
         Long productId = 35455L;
         String aDate = "202006162100";
 
-        var expected = new Item(35455L, 1L, 4L,
+        var expected = ItemMapper.newInstance(35455L, 1L, 4L,
                 LocalDateTime.of(2020, 06, 14, 16, 00, 00),
                 LocalDateTime.of(2020, 12, 31, 23, 59, 59),
                 "EUR 38,95 €");
